@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://rbm60r732qhu"]
+
+[ext_resource type="Script" path="res://editor.gd" id="1_tkhl1"]
+[ext_resource type="PackedScene" uid="uid://40b620mv4mcu" path="res://all_junk.tscn" id="3_pw7fq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a87qc"]
+size = Vector2(1171, 669)
+
+[node name="editor" type="Node2D"]
+script = ExtResource("1_tkhl1")
+
+[node name="all_junk" parent="." instance=ExtResource("3_pw7fq")]
+position = Vector2(1194, 31)
+
+[node name="junk_container" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+priority = -1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(575.5, 324.5)
+shape = SubResource("RectangleShape2D_a87qc")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

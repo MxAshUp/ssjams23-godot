@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://40b620mv4mcu"]
+
+[ext_resource type="Texture2D" uid="uid://cmumrd5pwhd6g" path="res://icon.svg" id="1_jlgyq"]
+[ext_resource type="Script" path="res://all_junk.gd" id="1_w4rqf"]
+[ext_resource type="Texture2D" uid="uid://c23t6f70hjojw" path="res://weird-wprites.png" id="2_a6e26"]
+
+[node name="all_junk" type="Node2D"]
+script = ExtResource("1_w4rqf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(290, 138)
+texture = ExtResource("1_jlgyq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D"]
+polygon = PackedVector2Array(-55, -60, 56, -58, 60, 58, -48, 58)
+
+[node name="Weird-wprites" type="Sprite2D" parent="."]
+position = Vector2(478, 335)
+texture = ExtResource("2_a6e26")
+region_enabled = true
+region_rect = Rect2(262, 110, 204, 126)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Weird-wprites"]
+position = Vector2(0, 4)
+polygon = PackedVector2Array(13, -30, -44, -43, -68, -39, -94, -16, -81, 8, -45, 32, 3, 33, 46, 45, 87, 37, 87, 3, 67, -16)
+
+[node name="Weird-wprites2" type="Sprite2D" parent="."]
+position = Vector2(739, 382)
+texture = ExtResource("2_a6e26")
+region_enabled = true
+region_rect = Rect2(149.119, 158.882, 69.8815, 53.1184)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Weird-wprites2"]
+polygon = PackedVector2Array(18, -21, 23, -2, 1, 18, -29, 10, -20, -18)
+
+[node name="Weird-wprites3" type="Sprite2D" parent="."]
+position = Vector2(521, 74)
+texture = ExtResource("2_a6e26")
+region_enabled = true
+region_rect = Rect2(290.697, 229.697, 60.5527, 86.2106)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Weird-wprites3"]
+polygon = PackedVector2Array(20, 16, 6, 41, -15, 29, -16, 21, -13, -17, -4, -31, 13, -30, 22, 3)
+
+[node name="Weird-wprites4" type="Sprite2D" parent="."]
+position = Vector2(725, 191)
+texture = ExtResource("2_a6e26")
+region_enabled = true
+region_rect = Rect2(472.355, 92.1706, 109.303, 123.158)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Weird-wprites4"]
+polygon = PackedVector2Array(6, 51, 10, 27, 48, -13, 15, -23, 4, -41, -19, -39, -38, -22, -38, 4, -42, 27, -21, 45)
