@@ -28,8 +28,16 @@ func _init(spriteWithShape: Sprite2D):
 	
 	theSprite.position = Vector2(0,0)
 	theClickArea.position = Vector2(0,0)
-	
+#	self.set_collision_layer_value(3, false)
+#	self.set_collision_mask_value(3, false)
+	set_col_layer(1)
 
+func set_col_layer(lay: int):
+	self.set_collision_layer(0)
+	self.set_collision_mask(0)
+	self.set_collision_layer_value(lay,true)
+	self.set_collision_mask_value(lay,true)
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_process_input(false)
@@ -77,6 +85,7 @@ func _input(event):
 			needs_move = true
 
 		elif event is InputEventMouseButton && !event.pressed:
+			theSprite.scale = Vector2(1,1)
 			is_being_dragged = false
 			needs_move = false
 			set_process_input(false)
@@ -84,9 +93,8 @@ func _input(event):
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	# Check for a mouse button press on the object
 	if event is InputEventMouseButton:
-		print_debug("YO", event)
-
 		if !is_being_dragged && event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
+			theSprite.scale = Vector2(1.1,1.1)
 			is_being_dragged = true
 			draw_click_offset = event.position - self.global_position
 			set_process_input(true)

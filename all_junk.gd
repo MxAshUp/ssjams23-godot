@@ -13,4 +13,6 @@ func crete_junk() -> Draggable:
 	var random_j = randi_range(0, len(get_children())-1)
 	var newSpriteWithShape = get_child(random_j).duplicate()
 	var junk_obj = Draggable.new(newSpriteWithShape)
+	if random_j == 0:
+		junk_obj.set_col_layer(2)
 	return junk_obj
