@@ -1,20 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://40b620mv4mcu"]
+[gd_scene load_steps=4 format=3 uid="uid://40b620mv4mcu"]
 
-[ext_resource type="Texture2D" uid="uid://cmumrd5pwhd6g" path="res://icon.svg" id="1_jlgyq"]
-[ext_resource type="Script" path="res://all_junk.gd" id="1_w4rqf"]
 [ext_resource type="Texture2D" uid="uid://c23t6f70hjojw" path="res://weird-wprites.png" id="2_a6e26"]
 [ext_resource type="Texture2D" uid="uid://dtuio8gne8akh" path="res://led.png" id="4_toa6f"]
 [ext_resource type="Texture2D" uid="uid://cqrcc4ke28tx0" path="res://DSC00476-removebg-preview.png" id="5_vfho0"]
 
 [node name="all_junk" type="Node2D"]
-script = ExtResource("1_w4rqf")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(290, 138)
-texture = ExtResource("1_jlgyq")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D"]
-polygon = PackedVector2Array(-55, -60, 56, -58, 60, 58, -48, 58)
 
 [node name="Weird-wprites" type="Sprite2D" parent="."]
 position = Vector2(478, 335)
@@ -36,6 +26,7 @@ region_rect = Rect2(149.119, 158.882, 69.8815, 53.1184)
 polygon = PackedVector2Array(18, -21, 23, -2, 1, 18, -29, 10, -20, -18)
 
 [node name="Weird-wprites3" type="Sprite2D" parent="."]
+modulate = Color(0.717647, 0, 0.729412, 1)
 position = Vector2(521, 74)
 texture = ExtResource("2_a6e26")
 region_enabled = true
@@ -126,7 +117,7 @@ region_rect = Rect2(218.013, 401.462, 112.736, 119.178)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Led8"]
 position = Vector2(-62.1563, 340.031)
 scale = Vector2(8.3125, 6.8125)
-polygon = PackedVector2Array(1.82331, -50.2064, 2.54511, -52.555, 3.02631, -52.9954, 2.90601, -53.289, 3.62782, -54.0229, 4.46992, -54.7569, 4.95113, -55.9312, 5.43233, -56.2248, 5.91354, -55.6376, 5.79324, -55.0505, 5.91354, -55.6376, 5.79324, -55.1973, 6.39474, -54.9037, 6.75564, -54.3165, 8.07895, -54.1697, 8.92105, -53.7294, 9.52255, -55.0505, 11.3271, -56.2248, 12.6504, -56.078, 13.1316, -54.9037, 13.1316, -52.555, 12.891, -51.5275, 12.2895, -50.9404, 11.5677, -50.6468, 11.5677, -48.7385, 11.0865, -45.9495, 10.0038, -43.7477, 8.80075, -42.2798, 7.59775, -41.3991, 5.79324, -41.5459, 4.22932, -42.133, 2.54511, -43.6009, 1.70301, -45.5092, 1.5827, -47.711)
+polygon = PackedVector2Array(1.82331, -50.2064, 2.54511, -52.555, 3.02631, -52.9954, 2.90601, -53.289, 3.62782, -54.0229, 4.46992, -54.7569, 4.95113, -55.9312, 5.43233, -56.2248, 5.91354, -55.6376, 5.79324, -55.1973, 6.39474, -54.9037, 6.75564, -54.3165, 8.07895, -54.1697, 8.92105, -53.7294, 9.52255, -55.0505, 11.3271, -56.2248, 12.6504, -56.078, 13.1316, -54.9037, 13.1316, -52.555, 12.891, -51.5275, 12.2895, -50.9404, 11.5677, -50.6468, 11.5677, -48.7385, 11.0865, -45.9495, 10.0038, -43.7477, 8.80075, -42.2798, 7.59775, -41.3991, 5.79324, -41.5459, 4.22932, -42.133, 2.54511, -43.6009, 1.70301, -45.5092, 1.5827, -47.711)
 
 [node name="Dsc00476-removebg-preview" type="Sprite2D" parent="."]
 position = Vector2(350, 487)

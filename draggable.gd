@@ -13,7 +13,12 @@ const ROTATE_INCREMENT = PI / 4
 var theSprite: Sprite2D
 var theClickArea: Area2D
 
+var value: int = 5
+
 var collision_drawer := GlueCollision.new()
+
+func set_color(col: Color):
+	theSprite.modulate = col
 
 func _init(spriteWithShape: Sprite2D):
 	theSprite = spriteWithShape
@@ -28,8 +33,6 @@ func _init(spriteWithShape: Sprite2D):
 	
 	theSprite.position = Vector2(0,0)
 	theClickArea.position = Vector2(0,0)
-#	self.set_collision_layer_value(3, false)
-#	self.set_collision_mask_value(3, false)
 	set_col_layer(1)
 
 func set_col_layer(lay: int):
@@ -77,11 +80,11 @@ func _process(delta):
 	
 	collision_drawer.update_last_collid_points(global_position, rotation)
 	queue_redraw()
-
+	
 func _input(event):
 	if is_being_dragged:
 		if event is InputEventMouseMotion:
-			move_to = event.global_position - draw_click_offset
+			move_to = event.position - draw_click_offset
 			needs_move = true
 
 		elif event is InputEventMouseButton && !event.pressed:
@@ -94,10 +97,13 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 	# Check for a mouse button press on the object
 	if event is InputEventMouseButton:
 		if !is_being_dragged && event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
-			theSprite.scale = Vector2(1.1,1.1)
-			is_being_dragged = true
-			draw_click_offset = event.position - self.global_position
-			set_process_input(true)
+			start_drag(event.position)
+
+func start_drag(click_offset: Vector2):
+	theSprite.scale = Vector2(1.1,1.1)
+	is_being_dragged = true
+	draw_click_offset = click_offset - self.global_position
+	set_process_input(true)
 
 func _draw():
 	if collision_drawer:

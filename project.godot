@@ -14,6 +14,15 @@ config/name="Slow Jams 2023"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="viewport"
+window/dpi/allow_hidpi=false
+mouse_cursor/custom_image="res://cursor-hand.png"
+mouse_cursor/custom_image_hotspot=Vector2(10, 6)
+
 [input]
 
 rotate_ccw={
@@ -31,4 +40,4 @@ rotate_cw={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.552941, 0.839216, 0.917647, 1)
+environment/defaults/default_clear_color=Color(0.25098, 0.25098, 0.25098, 1)
