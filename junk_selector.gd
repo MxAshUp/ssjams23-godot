@@ -6,7 +6,9 @@ var junk_objects: Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for theSpr in $all_junk.get_children():
+	var junk_ar = $all_junk.get_children()
+	junk_ar.shuffle()
+	for theSpr in junk_ar:
 		if theSpr is Sprite2D:
 			var text_clicker: TextureRect = $text_rect_template.duplicate()
 			var textu = AtlasTexture.new()
@@ -16,6 +18,7 @@ func _ready():
 			text_clicker.visible = true
 			text_clicker.connect("gui_input", handle_click_junk.bind(theSpr))
 			$BoxContainer.add_child(text_clicker)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
