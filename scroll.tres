@@ -1,0 +1,6 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dt1rtd177o5go"]
+
+[ext_resource type="Texture2D" uid="uid://bs2hutwkfo4ii" path="res://claybuttonnomal.png" id="1_q1v55"]
+
+[resource]
+texture = ExtResource("1_q1v55")

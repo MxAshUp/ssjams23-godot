@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmpa046q872tt"]
+
+[ext_resource type="Script" path="res://Title.gd" id="1_5l3w8"]
+[ext_resource type="Texture2D" uid="uid://ckntxt4uquiog" path="res://2.jpg" id="2_1xrhp"]
+[ext_resource type="Texture2D" uid="uid://dd3dmaig8hxd7" path="res://DSC00490-removebg-preview.png" id="2_ig1oe"]
+[ext_resource type="Texture2D" uid="uid://bs2hutwkfo4ii" path="res://claybuttonnomal.png" id="3_ofya8"]
+[ext_resource type="Texture2D" uid="uid://cuqr8ejn1fac5" path="res://claybuttonpressed.png" id="4_2cent"]
+[ext_resource type="Texture2D" uid="uid://clbat7okuakrw" path="res://Text.png" id="5_s3ll8"]
+[ext_resource type="AudioStream" uid="uid://3415g5dt310y" path="res://Clicksfx.mp3" id="7_pgk8t"]
+
+[node name="Title" type="Node2D"]
+position = Vector2(-56, 46)
+script = ExtResource("1_5l3w8")
+
+[node name="2" type="Sprite2D" parent="."]
+position = Vector2(729, 306)
+scale = Vector2(2.16315, 1.93814)
+texture = ExtResource("2_1xrhp")
+
+[node name="Dsc00490-removebg-preview" type="Sprite2D" parent="."]
+position = Vector2(674, 240)
+texture = ExtResource("2_ig1oe")
+
+[node name="Label" type="Label" parent="Dsc00490-removebg-preview"]
+offset_left = -61.0
+offset_top = 60.0
+offset_right = 107.0
+offset_bottom = 86.0
+text = "A Trash art simulator."
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 629.0
+offset_top = 336.0
+offset_right = 1082.0
+offset_bottom = 662.0
+scale = Vector2(0.246234, 0.243114)
+texture_normal = ExtResource("3_ofya8")
+texture_pressed = ExtResource("4_2cent")
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+offset_left = 635.0
+offset_top = 421.0
+offset_right = 1088.0
+offset_bottom = 747.0
+scale = Vector2(0.246234, 0.243114)
+texture_normal = ExtResource("3_ofya8")
+texture_pressed = ExtResource("4_2cent")
+
+[node name="Text" type="Sprite2D" parent="."]
+position = Vector2(684, 375)
+texture = ExtResource("5_s3ll8")
+region_enabled = true
+region_rect = Rect2(4.96623, 73.7761, 92.0292, 29.6868)
+
+[node name="Text2" type="Sprite2D" parent="."]
+position = Vector2(690, 462)
+texture = ExtResource("5_s3ll8")
+region_enabled = true
+region_rect = Rect2(2.47114, 102.792, 60.986, 31.895)
+
+[node name="clickfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_pgk8t")
+volume_db = -7.518
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureButton2" to="." method="_on_texture_button_2_pressed"]
