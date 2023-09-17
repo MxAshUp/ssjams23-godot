@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://da1c3go7h0xnq"]
+
+[ext_resource type="Texture2D" uid="uid://cmumrd5pwhd6g" path="res://icon.svg" id="1_jlurn"]
+[ext_resource type="Texture2D" uid="uid://c23t6f70hjojw" path="res://weird-wprites.png" id="2_l55uc"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-26, 173)
+texture = ExtResource("1_jlurn")
+invert_enabled = true
+polygon = PackedVector2Array(124, 1, 69, 71, 21, 134, 133, 133, 127, 34)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+position = Vector2(548, 324)
+texture = ExtResource("2_l55uc")
+texture_offset = Vector2(300, 300)
+polygon = PackedVector2Array(12, -95, 70, -77, 151, -68, 168, -118, 104, -168)
+
+[node name="Polygon2D3" type="Polygon2D" parent="."]
+position = Vector2(543, 318)
+texture = ExtResource("2_l55uc")
+texture_offset = Vector2(300, 300)
+polygon = PackedVector2Array(-65, -110, -14, -92, -1, -90, 100, -174, -8, -188)

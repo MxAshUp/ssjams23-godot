@@ -1,0 +1,234 @@
+[gd_scene load_steps=18 format=3 uid="uid://rbm60r732qhu"]
+
+[ext_resource type="Script" path="res://editor.gd" id="1_tkhl1"]
+[ext_resource type="Script" path="res://junk_selector.gd" id="2_0dsf8"]
+[ext_resource type="Theme" uid="uid://b05rwfiq5wd5o" path="res://theme.tres" id="2_fp8by"]
+[ext_resource type="Texture2D" uid="uid://c8v5ffxpdhwpg" path="res://clay bg2.jpg" id="2_hlmbj"]
+[ext_resource type="Script" path="res://TextureRect.gd" id="3_fki1n"]
+[ext_resource type="PackedScene" uid="uid://40b620mv4mcu" path="res://all_junk.tscn" id="3_pw7fq"]
+[ext_resource type="AudioStream" uid="uid://dea1oattrxamo" path="res://CSWWFcut.ogg" id="4_qfbsi"]
+[ext_resource type="Script" path="res://AudioStreamPlayer.gd" id="5_gtc2w"]
+[ext_resource type="Texture2D" uid="uid://bs2hutwkfo4ii" path="res://claybuttonnomal.png" id="5_rjjc8"]
+[ext_resource type="Texture2D" uid="uid://cuqr8ejn1fac5" path="res://claybuttonpressed.png" id="6_ytlf4"]
+[ext_resource type="Texture2D" uid="uid://clbat7okuakrw" path="res://Text.png" id="7_yd75j"]
+[ext_resource type="Texture2D" uid="uid://2pc2104cqijt" path="res://text2.png" id="8_dfkxh"]
+[ext_resource type="Texture2D" uid="uid://cn5f4oxjk1odo" path="res://text3.png" id="11_wwhkl"]
+[ext_resource type="AudioStream" uid="uid://c1u1ndhj6xi7w" path="res://SellSFX.mp3" id="12_evs6p"]
+[ext_resource type="AudioStream" uid="uid://3415g5dt310y" path="res://Clicksfx.mp3" id="12_pvhwq"]
+[ext_resource type="AudioStream" uid="uid://c15lqi08jmk7a" path="res://keepsfx.mp3" id="13_jw6m5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a87qc"]
+size = Vector2(1952, 1295)
+
+[node name="editor" type="Node2D"]
+script = ExtResource("1_tkhl1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -24.0
+offset_top = -34.0
+offset_right = 844.0
+offset_bottom = 698.0
+scale = Vector2(1.54395, 1.05129)
+texture = ExtResource("2_hlmbj")
+script = ExtResource("3_fki1n")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TextureRect"]
+stream = ExtResource("4_qfbsi")
+autoplay = true
+script = ExtResource("5_gtc2w")
+
+[node name="TextureButton3" type="TextureButton" parent="TextureRect/AudioStreamPlayer"]
+offset_left = 832.0
+offset_top = 645.0
+offset_right = 1285.0
+offset_bottom = 971.0
+scale = Vector2(0.0749034, 0.118491)
+texture_normal = ExtResource("5_rjjc8")
+texture_pressed = ExtResource("6_ytlf4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -78.0
+offset_top = -62.0
+offset_right = 1454.0
+offset_bottom = 783.0
+mouse_filter = 1
+color = Color(0, 0, 0, 1)
+
+[node name="junk_selector" type="ScrollContainer" parent="."]
+offset_left = 892.0
+offset_top = 1.0
+offset_right = 1302.0
+offset_bottom = 720.0
+theme = ExtResource("2_fp8by")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+script = ExtResource("2_0dsf8")
+
+[node name="all_junk" parent="junk_selector" instance=ExtResource("3_pw7fq")]
+visible = false
+position = Vector2(531, 116)
+
+[node name="text_rect_template" type="TextureRect" parent="junk_selector"]
+layout_mode = 2
+stretch_mode = 3
+
+[node name="BoxContainer" type="VBoxContainer" parent="junk_selector"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="junk_container" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+monitorable = false
+priority = -1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(966, 637.5)
+shape = SubResource("RectangleShape2D_a87qc")
+
+[node name="money_label" type="Label" parent="."]
+offset_left = 220.0
+offset_top = 653.0
+offset_right = 332.0
+offset_bottom = 679.0
+scale = Vector2(2.37, 2.37)
+text = "Money: $0"
+
+[node name="Claybuttonpressed" type="Sprite2D" parent="."]
+position = Vector2(787.663, 666.192)
+scale = Vector2(0.102712, -0.167972)
+texture = ExtResource("6_ytlf4")
+
+[node name="ColorPickerButton2" type="ColorPickerButton" parent="Claybuttonpressed"]
+offset_left = -176.333
+offset_top = 96.3936
+offset_right = -136.333
+offset_bottom = 135.394
+scale = Vector2(8.33775, -4.95275)
+color = Color(0.360784, 0.352941, 0.337255, 1)
+edit_alpha = false
+
+[node name="screenshot_rect" type="ReferenceRect" parent="."]
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 872.0
+offset_bottom = 578.0
+mouse_filter = 1
+
+[node name="Button" type="TextureButton" parent="."]
+offset_left = -2.0
+offset_top = 569.0
+offset_right = 451.0
+offset_bottom = 895.0
+scale = Vector2(0.422821, 0.485137)
+texture_normal = ExtResource("5_rjjc8")
+texture_pressed = ExtResource("6_ytlf4")
+
+[node name="Text" type="Sprite2D" parent="Button"]
+position = Vector2(222.316, 173.147)
+scale = Vector2(2.83069, 2.53419)
+texture = ExtResource("7_yd75j")
+region_enabled = true
+region_rect = Rect2(-5.22724, -8.68419, 80.7058, 39.1866)
+
+[node name="sellfx" type="AudioStreamPlayer2D" parent="Button"]
+stream = ExtResource("12_evs6p")
+volume_db = -13.783
+
+[node name="Button2" type="TextureButton" parent="."]
+offset_left = 436.0
+offset_top = 567.0
+offset_right = 889.0
+offset_bottom = 893.0
+scale = Vector2(0.450903, 0.491487)
+texture_normal = ExtResource("5_rjjc8")
+texture_pressed = ExtResource("6_ytlf4")
+
+[node name="Text2" type="Sprite2D" parent="Button2"]
+position = Vector2(237.301, 174.979)
+scale = Vector2(2.59989, 2.17861)
+texture = ExtResource("7_yd75j")
+region_enabled = true
+region_rect = Rect2(4.87986, 31.8416, 78.1601, 40.3068)
+
+[node name="buyfx" type="AudioStreamPlayer2D" parent="Button2"]
+stream = ExtResource("13_jw6m5")
+volume_db = -13.19
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(706, 619)
+scale = Vector2(2.19956, 1.79345)
+texture = ExtResource("8_dfkxh")
+region_enabled = true
+region_rect = Rect2(1.82236, 4.31289, 16.6778, 21.0925)
+
+[node name="Text2" type="Sprite2D" parent="."]
+position = Vector2(786, 621)
+scale = Vector2(1.93112, 1.7817)
+texture = ExtResource("8_dfkxh")
+region_enabled = true
+region_rect = Rect2(2.16124, 4.21583, 17.0264, 21.6209)
+
+[node name="Text4" type="Sprite2D" parent="."]
+position = Vector2(814, 592)
+scale = Vector2(1.23126, 1.14426)
+texture = ExtResource("8_dfkxh")
+region_enabled = true
+region_rect = Rect2(-1.82526, 43.7003, 80.9145, 21.3059)
+
+[node name="TextureButton" type="TextureButton" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("5_rjjc8")
+texture_pressed = ExtResource("6_ytlf4")
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+offset_left = 684.0
+offset_top = 642.0
+offset_right = 1137.0
+offset_bottom = 968.0
+scale = Vector2(0.0763432, 0.121367)
+texture_normal = ExtResource("5_rjjc8")
+texture_pressed = ExtResource("6_ytlf4")
+
+[node name="Text3" type="Sprite2D" parent="."]
+position = Vector2(725, 598)
+scale = Vector2(1.3844, 1.22167)
+texture = ExtResource("11_wwhkl")
+region_enabled = true
+region_rect = Rect2(-0.217686, -0.920891, 53.4562, 17.9065)
+
+[node name="Text5" type="Sprite2D" parent="."]
+position = Vector2(851, 620)
+texture = ExtResource("11_wwhkl")
+region_enabled = true
+region_rect = Rect2(55.4453, 1.7066, 71.8368, 21.4352)
+
+[node name="Text6" type="Sprite2D" parent="."]
+position = Vector2(835, 639)
+scale = Vector2(-1.25318, -0.931375)
+texture = ExtResource("11_wwhkl")
+region_enabled = true
+region_rect = Rect2(63.7272, 19.0225, 24.2265, 30.5464)
+
+[node name="fxmain" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_pvhwq")
+volume_db = -0.105
+
+[connection signal="pressed" from="TextureRect/AudioStreamPlayer/TextureButton3" to="." method="_on_texture_button_3_pressed"]
+[connection signal="pressed" from="TextureRect/AudioStreamPlayer/TextureButton3" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureRect/AudioStreamPlayer/TextureButton3" to="TextureRect/AudioStreamPlayer" method="_on_texture_button_3_pressed"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="color_changed" from="Claybuttonpressed/ColorPickerButton2" to="." method="_on_color_picker_button_2_color_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureButton" to="TextureRect" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureButton2" to="TextureRect" method="_on_texture_button_pressed"]
